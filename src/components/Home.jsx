@@ -271,7 +271,7 @@ const Home = () => {
     {
       img: choose3,
       title: "ALL NATURAL",
-      desc: "All nsdfghjkjfdertyuiuytrertyuiouytrertyuiatural authentic, locally and fresh ingredients.",
+      desc: "All natural authentic, locally and fresh ingredients.",
     },
     {
       img: choose4,

@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import ProdutHero from "../assets/homme4.webp";
 import greek from "../assets/GREEK.png";
-import  garlic from "../assets/FRENCH_VINAIGRETTE.png";
+import garlic from "../assets/FRENCH_VINAIGRETTE.png";
 import thai from "../assets/THAI_GINGER.png";
 import sriracha from "../assets/SRIRACHA.png";
 import balsamic from "../assets/BALSAMIC.png";
@@ -14,13 +14,13 @@ import { HiLocationMarker } from "react-icons/hi";
 
 const products = [
   {
-   name: "BALSAMIC VINAIGRETTE",
-   shortDesc: "Relish the warmth and nostalgia of home-cooked meals.",
-   fullDesc:
-     "Rich, tangy, and fruity with a boutique flair. Perfect for elevating salads, grilled meats, or roasted vegetables. Also works wonderfully drizzled over fresh mozzarella, strawberries, or grilled chicken for an instant touch of sophistication.",
-   img:balsamic,
-   quantity: "150ml",
-   price: 250,
+    name: "BALSAMIC VINAIGRETTE",
+    shortDesc: "Relish the warmth and nostalgia of home-cooked meals.",
+    fullDesc:
+      "Rich, tangy, and fruity with a boutique flair. Perfect for elevating salads, grilled meats, or roasted vegetables. Also works wonderfully drizzled over fresh mozzarella, strawberries, or grilled chicken for an instant touch of sophistication.",
+    img: balsamic,
+    quantity: "150ml",
+    price: 250,
   },
   {
     name: "GARLIC VINAIGRETTE",
@@ -73,6 +73,8 @@ const products = [
 
 ];
 
+// const isSmallBottle = index === 2 || index === 4;
+
 const stores = [
   { name: "Nature's Basket, CMH Road", address: "Ward No. 80, Ward Name, Ground Floor, 723, C.M.H. Main Road 1st Binnamangala Stage, Hoysala Nagar, Indiranagar, Bengaluru, Karnataka 560038" },
   { name: "Nature's Basket, Koramangala", address: "No.9, 17th A Main Rd, KHB Colony, 5th Block, Koramangala, Bengaluru, Karnataka 560095" },
@@ -84,7 +86,7 @@ const stores = [
   { name: "Nature's Basket, RMZ ECO World", address: "Unit No. 20 & 21, EcoWorld 30, RMZ Ecoworld Rd, Bellandur, Bengaluru, Karnataka 560103" },
   { name: "Bangalore Club", address: "No.10, Residency Rd, Ashok Nagar, Bengaluru, Karnataka 560025" },
   { name: "New Fruit Land", address: "No. 583,9th  Main Road Off CMH Road, Indira Nagar 1st Stage, Bengaluru, Karnataka 560038" },
-  { name:"Thom's Bakery & Supermarket", address:"1/2, Wheeler Rd, Frazer Town, Bengaluru, Karnataka 560005"},
+  { name: "Thom's Bakery & Supermarket", address: "1/2, Wheeler Rd, Frazer Town, Bengaluru, Karnataka 560005" },
 ];
 
 const ProductPage = () => {
@@ -99,13 +101,13 @@ const ProductPage = () => {
   };
 
   const prevProduct = () => {
-  setSelectedIndex((prev) =>
-    prev === 0 ? products.length - 1 : prev - 1
-  );
-  setTimeout(() => {
-    detailsRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, 100);
-};
+    setSelectedIndex((prev) =>
+      prev === 0 ? products.length - 1 : prev - 1
+    );
+    setTimeout(() => {
+      detailsRef.current?.scrollIntoView({ behavior: "smooth" });
+    }, 100);
+  };
 
   const nextProduct = () => {
     setSelectedIndex((prev) => (prev + 1) % products.length);
@@ -116,7 +118,7 @@ const ProductPage = () => {
 
   return (
     <section className="w-full bg-[#FDF2D2]">
-      
+
       {/* HERO */}
       {/* <div className="w-full h-[40vh] sm:h-[55vh] md:h-[70vh] lg:h-[80vh] relative overflow-hidden"> */}
       <div className="w-full h-auto relative overflow-hidden">
@@ -129,30 +131,33 @@ const ProductPage = () => {
 
       {/* THUMBNAILS */}
       <div className="px-4 sm:px-8 flex flex-wrap justify-center gap-6 sm:gap-12 lg:gap-16 my-12">
-        {products.map((product, index) => (
-          <div
-            key={index}
-            onClick={() => handleSelectProduct(index)}
-            className="cursor-pointer text-center p-2 rounded-lg transition w-[45%]  sm:w-40 md:w-44 lg:w-48 hover:scale-105 duration-300"
-          >
-            <img
-              src={product.img}
-              alt={product.name}
-              className="w-full h-52 sm:h-64 object-contain mx-auto mb-2"
-            />
-            <h3 className="inter font-medium">{product.name}</h3>
-            {/* <div className="flex items-center justify-center gap-1 text-sm text-[#FF5203] font-medium mt-2">
-              <span>Know More</span>
-              <FaArrowRight size={12} />
-            </div> */}
-          </div>
-        ))}
+        {products.map((product, index) => {
+          const isSmallBottle = index === 2 || index === 4;
+
+          return (
+            <div
+              key={index}
+              onClick={() => handleSelectProduct(index)}
+              className="cursor-pointer text-center p-2 rounded-lg transition sm:w-40 md:w-44 lg:w-48 hover:scale-105 duration-300"
+            >
+              <img
+                src={product.img}
+                alt={product.name}
+                className={`h-52 sm:h-64 object-contain mx-auto mb-2 transition-transform duration-300
+          ${isSmallBottle ? "scale-115" : "scale-100"}
+        `}
+              />
+              <h3 className="inter font-medium">{product.name}</h3>
+            </div>
+          );
+        })}
+
       </div>
 
       {/* PRODUCT DETAILS */}
       <div className="bg-[#DCE9A5] p-6 sm:p-10 md:p-12" ref={detailsRef}>
         <div
-          className="max-w-5xl mx-auto relative bg-[#FEF3F3] rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg overflow-hidden bg-cover bg-center"
+          className="max-w-5xl mt-9 mx-auto relative bg-[#FEF3F3] rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${productbg})` }}
         >
           {/* LEFT TEXT */}
@@ -186,22 +191,22 @@ const ProductPage = () => {
               />
             </div>
           </div>
-{/* PERVIOUS BUTTON */}
-   {/* PREV BUTTON */}
-<button
-  onClick={prevProduct}
-  className="absolute left-2 sm:left-4 top-[55%] sm:top-1/2 -translate-y-1/2 p-3 sm:p-4 bg-white rounded-full shadow hover:bg-gray-100 rotate-180"
->
-  <FaArrowRight />
-</button>
+          {/* PERVIOUS BUTTON */}
+          {/* PREV BUTTON */}
+          <button
+            onClick={prevProduct}
+            className="absolute left-2 sm:left-4 top-[55%] sm:top-1/2 -translate-y-1/2 p-3 sm:p-4 bg-white rounded-full shadow hover:bg-gray-100 rotate-180"
+          >
+            <FaArrowRight />
+          </button>
 
-{/* NEXT BUTTON */}
-<button
-  onClick={nextProduct}
-  className="absolute right-2 sm:right-4 top-[55%] sm:top-1/2 -translate-y-1/2 p-3 sm:p-4 bg-white rounded-full shadow hover:bg-gray-100"
->
-  <FaArrowRight />
-</button>
+          {/* NEXT BUTTON */}
+          <button
+            onClick={nextProduct}
+            className="absolute right-2 sm:right-4 top-[55%] sm:top-1/2 -translate-y-1/2 p-3 sm:p-4 bg-white rounded-full shadow hover:bg-gray-100"
+          >
+            <FaArrowRight />
+          </button>
 
         </div>
 
