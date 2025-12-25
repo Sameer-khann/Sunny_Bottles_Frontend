@@ -116,8 +116,43 @@ const ProductPage = () => {
     }, 100);
   };
 
+
+  const [thumbStart, setThumbStart] = useState(0);
+
+  const getVisibleCount = () => {
+    if (window.innerWidth < 640) return 1;      // mobile
+    if (window.innerWidth < 1024) return 2;     // tablet
+    return 4;                                   // desktop
+  };
+
+  const [visibleCount, setVisibleCount] = useState(getVisibleCount());
+
+  React.useEffect(() => {
+    const handleResize = () => setVisibleCount(getVisibleCount());
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+
+  const nextThumbs = () => {
+    setThumbStart((prev) =>
+      prev + visibleCount >= products.length ? 0 : prev + visibleCount
+    );
+  };
+
+  const prevThumbs = () => {
+    setThumbStart((prev) =>
+      prev - visibleCount < 0
+        ? Math.max(products.length - visibleCount, 0)
+        : prev - visibleCount
+    );
+  };
+
+
+
+
   return (
-    <section className="w-full bg-[#FDF2D2]">
+    <section className="flex flex-col items-center w-full bg-[#FDF2D2]">
 
       {/* HERO */}
       {/* <div className="w-full h-[40vh] sm:h-[55vh] md:h-[70vh] lg:h-[80vh] relative overflow-hidden"> */}
@@ -130,7 +165,7 @@ const ProductPage = () => {
       </div>
 
       {/* THUMBNAILS */}
-      <div className="px-4 sm:px-8 flex flex-wrap justify-center gap-6 sm:gap-12 lg:gap-16 my-12">
+      {/* <div className="px-4 sm:px-8 flex flex-wrap justify-center gap-6 sm:gap-12 lg:gap-16 my-12">
         {products.map((product, index) => {
           const isSmallBottle = index === 2 || index === 4;
 
@@ -152,10 +187,63 @@ const ProductPage = () => {
           );
         })}
 
+      </div> */}
+
+      {/* THUMBNAIL CAROUSEL */}
+      <div className="flex items-center justify-center relative my-12 px-4 sm:px-8 w-[70%]">
+
+        {/* LEFT ARROW */}
+        <button
+          onClick={prevThumbs}
+          className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white p-3 rounded-full shadow hover:bg-gray-100"
+        >
+          <FaArrowRight className="rotate-180" />
+        </button>
+
+        {/* THUMBNAILS */}
+        <div className="flex justify-center gap-6 sm:gap-12 overflow-hidden">
+          {products
+            .slice(thumbStart, thumbStart + visibleCount)
+            .map((product, index) => {
+              const actualIndex = thumbStart + index;
+              const isSmallBottle = actualIndex === 2 || actualIndex === 4;
+
+              return (
+                <div
+                  key={actualIndex}
+                  onClick={() => handleSelectProduct(actualIndex)}
+                  className={`cursor-pointer text-center p-2 rounded-lg transition
+              w-40 sm:w-44 lg:w-48 hover:scale-105 duration-300
+              ${selectedIndex === actualIndex ? "scale-110" : ""}
+            `}
+                >
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className={`h-52 sm:h-64 object-contain mx-auto mb-2 transition-transform
+                ${isSmallBottle ? "scale-115" : "scale-100"}
+              `}
+                  />
+                  <h3 className="inter font-medium text-sm sm:text-base">
+                    {product.name}
+                  </h3>
+                </div>
+              );
+            })}
+        </div>
+
+        {/* RIGHT ARROW */}
+        <button
+          onClick={nextThumbs}
+          className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white p-3 rounded-full shadow hover:bg-gray-100"
+        >
+          <FaArrowRight />
+        </button>
       </div>
 
+
       {/* PRODUCT DETAILS */}
-      <div className="bg-[#DCE9A5] p-6 sm:p-10 md:p-12" ref={detailsRef}>
+      <div className="bg-[#DCE9A5] w-full p-6 sm:p-10 md:p-12" ref={detailsRef}>
         <div
           className="max-w-5xl mt-9 mx-auto relative bg-[#FEF3F3] rounded-xl p-6 sm:p-8 flex flex-col md:flex-row items-center gap-8 shadow-lg overflow-hidden bg-cover bg-center"
           style={{ backgroundImage: `url(${productbg})` }}
