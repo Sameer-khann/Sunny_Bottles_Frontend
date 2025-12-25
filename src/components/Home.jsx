@@ -271,7 +271,7 @@ const Home = () => {
     {
       img: choose3,
       title: "ALL NATURAL",
-      desc: "All natural authentic, locally and fresh ingredients.",
+      desc: "All nsdfghjkjfdertyuiuytrertyuiouytrertyuiatural authentic, locally and fresh ingredients.",
     },
     {
       img: choose4,
@@ -305,8 +305,9 @@ const Home = () => {
     <section className="w-full bg-[#FDF2D2] overflow-hidden">
 
       {/* Hero Carousel */}
-      <div className="relative w-full h-[45vh] sm:h-[60vh] md:h-[80vh] overflow-hidden">
-        <img src={images[current]} alt="slide" className="w-full h-full object-cover transition duration-700" />
+      <div className="relative w-full h-auto overflow-hidden">
+      {/* <div className="relative w-full h-[20vh] sm:h-[50vh] md:h-[80vh] overflow-hidden"> */}
+        <img src={images[current]} alt="slide" className="w-full h-full object-contain md:object-cover transition duration-700" />
 
 
         {/* Previous Button */}
@@ -357,19 +358,19 @@ const Home = () => {
         <div className="flex-1 flex justify-center relative">
           <img
             src={bottles}
-            className="w-60 sm:w-72 md:w-96 object-contain"
+            className="w-80 sm:w-72 md:w-96 object-contain"
             alt="bottles"
           />
           <img
             src={arrow}
-            className="absolute -right-10 sm:-right-10 md:-right-2 top-16 w-14 sm:w-20 md:w-24 rotate-12"
+            className="absolute -right-10 sm:-right-10 md:-right-2 top-16 w-19 sm:w-20 md:w-24 rotate-12"
             alt="arrow"
           />
         </div>
       </div>
 
       {/* Why Choose Us */}
-      <div className="text-center mt-20">
+      <div className="text-center mt-10 md:mt-20">
         <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800">
           WHY CHOOSE US?
         </h2>

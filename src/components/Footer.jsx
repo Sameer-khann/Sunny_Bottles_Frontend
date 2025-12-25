@@ -15,7 +15,7 @@ const Footer = () => {
         {/* COLUMN 1 — SUNNY’S IN A BOTTLE */}
         <div>
           <h2 className="text-xl font-semibold text-[#2F820C] mb-3">
-            SUNNY’S IN A BOTTLE
+            Sunny's In A Bottle
           </h2>
 
           <p className="text-[#525252] leading-[22px] text-[15px]">
@@ -28,7 +28,7 @@ const Footer = () => {
           {/* MOBILE ONLY: CONNECT WITH US under Sunny's */}
           <div className="block md:hidden">
             <h2 className="text-xl font-semibold text-[#2F820C] mb-3">
-              Connect with us
+              Connect With Us
             </h2>
 
             <div className="flex gap-4">
@@ -55,7 +55,7 @@ const Footer = () => {
         {/* COLUMN 2 — CONTACT */}
         <div className="md:pl-10">
           <h2 className="text-xl font-semibold text-[#2F820C] mb-3">
-            Contact
+            Contact Us
           </h2>
 
           <p className="text-[#525252] text-[15px] leading-[22px] mb-3">
@@ -80,8 +80,8 @@ const Footer = () => {
           {/* Phone */}
           <div className="flex items-center gap-2">
             {/* <MdCall className="text-[#2F820C]" /> */}
-            <a href="tel:+91988601268" className="text-[#525252]">
-              +91 98860 1268
+            <a href="tel:+919886012686" className="text-[#525252]">
+              +91 98860 12686
             </a>
           </div>
         </div>
@@ -89,7 +89,7 @@ const Footer = () => {
         {/* COLUMN 3 — CONNECT WITH US (DESKTOP ONLY) */}
         <div className="hidden md:block">
           <h2 className="text-xl font-semibold text-[#2F820C] mb-3">
-            Connect with us
+            Connect With Us
           </h2>
 
           <div className="flex gap-4">

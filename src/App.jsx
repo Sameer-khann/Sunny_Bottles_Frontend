@@ -9,6 +9,7 @@ import Footer from "./components/Footer";
 import NotFound from "./components/NotFound";
 
 import { Toaster } from "react-hot-toast";
+import { ScrollToTop } from "./components/ScrollToTop";
 
 function App() {
   const location = useLocation();
@@ -34,6 +35,7 @@ function App() {
       </Routes>
 
       {!hideNavbarFooter && <Footer />}
+      <ScrollToTop/>
     </>
   );
 }
