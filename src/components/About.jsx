@@ -5,6 +5,7 @@ import aboutImg from "../assets/about.webp";
 const About = () => {
   const [showMoreLegacy, setShowMoreLegacy] = useState(false);
   const [showMoreBottle, setShowMoreBottle] = useState(false);
+  const [showMorePhilosophy, setShowMorePhilosophy] = useState(false);
 
   return (
     <section className="w-full py-10 md:py-20 bg-[#FDF2D2]">
@@ -124,7 +125,7 @@ const About = () => {
 
             </p>
 
-            {showMoreBottle && (
+            {showMorePhilosophy && (
               <p className="font-ABeeZee text-gray-600 text-base md:text-lg leading-7 md:leading-8">
                 From our kitchens to yours Sunny’s in a bottle carry three decades of a chef’s instinct — not to impress, but to delight.
                 Here’s to meals that feel effortless, flavours that feel familiar, and a legacy you can now pour, drizzle, mix, or marinate into anything you cook.
@@ -135,10 +136,10 @@ const About = () => {
             )}
 
             <button
-              onClick={() => setShowMoreBottle(!showMoreBottle)}
+              onClick={() => setShowMorePhilosophy(!showMorePhilosophy)}
               className="mt-2 px-6 py-2 border-2 border-[#FF5203] text-[#FF5203] rounded-2xl hover:bg-[#FF5203] hover:text-white transition flex items-center gap-2"
             >
-              {showMoreBottle ? "Show Less" : "Read More"} <FaArrowRight />
+              {showMorePhilosophy ? "Show Less" : "Read More"} <FaArrowRight />
             </button>
           </div>
         </div>
