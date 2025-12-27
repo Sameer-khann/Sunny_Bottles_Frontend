@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaArrowRight } from "react-icons/fa";
 import aboutImg from "../assets/about.webp";
 
 const About = () => {
-  const [showMoreLegacy, setShowMoreLegacy] = useState(false);
-  const [showMoreBottle, setShowMoreBottle] = useState(false);
-  const [showMorePhilosophy, setShowMorePhilosophy] = useState(false);
+  // const [showMoreLegacy, setShowMoreLegacy] = useState(false);
+  // const [showMoreBottle, setShowMoreBottle] = useState(false);
+  // const [showMorePhilosophy, setShowMorePhilosophy] = useState(false);
 
   return (
     <section className="w-full py-10 md:py-20 bg-[#FDF2D2]">
@@ -56,7 +56,7 @@ const About = () => {
 
             </p>
 
-            {showMoreLegacy && (
+            {/* {showMoreLegacy && ( */}
               <p className="font-ABeeZee text-gray-600 text-base md:text-lg leading-7 md:leading-8">
                 Sunny’s didn’t rely on theatrics or trends. Its charm came from the way Arjun cooked — with clarity, balance, and an instinct for flavour that made the food feel both comforting and quietly sophisticated.
                 Nearly three decades later, that legacy remains unchanged:
@@ -65,14 +65,14 @@ const About = () => {
 
 
               </p>
-            )}
+            {/* )} */}
 
-            <button
+            {/* <button
               onClick={() => setShowMoreLegacy(!showMoreLegacy)}
               className="mt-2 px-6 py-2 border-2 border-[#FF5203] text-[#FF5203] rounded-2xl hover:bg-[#FF5203] hover:text-white transition flex items-center gap-2"
             >
               {showMoreLegacy ? "Show Less" : "Read More"} <FaArrowRight />
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -91,21 +91,21 @@ const About = () => {
 
             </p>
 
-            {showMoreBottle && (
+            {/* {showMoreBottle && ( */}
               <p className="font-ABeeZee text-gray-600 text-base md:text-lg leading-7 md:leading-8">
                 Every bottle is made the way Arjun cooks — with instinct, discipline, and a refusal to compromise on ingredients. Vegan, all-natural, free of preservatives, and designed to make good food effortless.
                 Sunny’s In A Bottle isn’t “inspired by the restaurant.”
                 It is the restaurant — the legacy, the palate, the taste — distilled into drizzles, marinades, sauces, and moments.
 
               </p>
-            )}
+            {/* )} */}
 
-            <button
+            {/* <button
               onClick={() => setShowMoreBottle(!showMoreBottle)}
               className="mt-2 px-6 py-2 border-2 border-[#FF5203] text-[#FF5203] rounded-2xl hover:bg-[#FF5203] hover:text-white transition flex items-center gap-2"
             >
               {showMoreBottle ? "Show Less" : "Read More"} <FaArrowRight />
-            </button>
+            </button> */}
           </div>
         </div>
 
@@ -125,7 +125,7 @@ const About = () => {
 
             </p>
 
-            {showMorePhilosophy && (
+            {/* {showMorePhilosophy && ( */}
               <p className="font-ABeeZee text-gray-600 text-base md:text-lg leading-7 md:leading-8">
                 From our kitchens to yours Sunny’s in a bottle carry three decades of a chef’s instinct — not to impress, but to delight.
                 Here’s to meals that feel effortless, flavours that feel familiar, and a legacy you can now pour, drizzle, mix, or marinate into anything you cook.
@@ -133,14 +133,14 @@ const About = () => {
 
 
               </p>
-            )}
+            {/* )} */}
 
-            <button
+            {/* <button
               onClick={() => setShowMorePhilosophy(!showMorePhilosophy)}
               className="mt-2 px-6 py-2 border-2 border-[#FF5203] text-[#FF5203] rounded-2xl hover:bg-[#FF5203] hover:text-white transition flex items-center gap-2"
             >
               {showMorePhilosophy ? "Show Less" : "Read More"} <FaArrowRight />
-            </button>
+            </button> */}
           </div>
         </div>
       </div>
